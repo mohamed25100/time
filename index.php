@@ -7,7 +7,7 @@
     <title>Time convert</title>
 </head>
 <body>
-    <php?
+    <?php
     function goku($n):int {$counter = 0;
         while ($n >= 60){
         $n = $n -60;
