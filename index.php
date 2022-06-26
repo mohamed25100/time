@@ -14,6 +14,14 @@
  <main class="mx-4 py-3">
     <p>examples:</p>
     <?php
+    function istrue($a,$b,$c,$d)
+    {
+        return $a ? "$b $c, ":false;
+    }
+    function isittrue($a,$b,$c)
+    {
+        return $a ? "$b $c":false;
+    }
     function goku($n): int
     {
         $counter = 0;
@@ -68,70 +76,21 @@
         $my_hours = $hours % 24;
         $my_days = $days % 365;
         $my_years = $years;
-        if ($years == 0) {
-            if ($my_min == 0 && $my_sec == 0 && $my_hours == 0) {
-                return "$my_days $d";
-            }
-            if ($days == 0) {
-                if ($my_min == 0 && $my_sec == 0) {
-                    return "$my_hours $h";
-                }
-                if ($hours == 0) {
-                    if ($minutes == 0) {
-                        if ($seconds == 0) {
-                            return "now";
-                        }
-                        return "$my_sec $sec"; //sec only
-                    }
-                    if ($my_sec == 0) {
-                        return "$my_min $min";
-                    }
-                    return "$my_min $min and $my_sec $sec"; //min only
-                }
-                if ($my_sec == 0) {
-                    return $my_min == 0 ? "$my_hours $h"
-                        : "$my_hours $h and $my_sec $sec";
-                }
-                return $my_min ? "$my_hours $h, $my_min $min and $my_sec $sec" :
-                    "$my_hours $h and $my_sec $sec"; //hours only
-            }
-            if ($my_hours == 0) {
-                if ($my_sec == 0) {
-                    return "$my_days $d and $my_min $min";
-                }
-                return "$my_days $d, $my_min $min and $my_sec $sec";
-            }
-            if ($my_min == 0) {
-                if ($my_sec == 0) {
-                    return "$my_days $d and $my_hours $h";
-                }
-                return "$my_days $d, $my_hours $h and $my_sec $sec";
-            }
-            if ($my_sec == 0) {
-                if ($my_hours !== 0) {
-                    return $my_min == 0 ? "$my_days $d and $my_hours $h" :
-                        "$my_days $d, $my_hours $h and $my_min $min";
-                }
-            }
 
-            if ($my_hours == 0) {
-                return  $my_min !== 0 && $my_sec !== 0 ? "$my_days $d, $my_min $min and $my_sec $sec" : ($$my_min !== 0 ? "$my_days $d and $my_min $min" : ("$my_days $d and $my_sec $sec"));
-            }
-            return "$my_days $d, $my_hours $h, $my_min $min and $my_sec $sec";
-        }
-        if ($my_days && $my_hours && $my_min && $my_sec) {
-            return "$my_years $y, $my_days $d, $my_hours $h, $my_min $min and $my_sec $sec";
-        }
-        if ($my_days && $my_hours && $my_min) {
-            return "$my_years $y, $my_days $d, $my_hours $h and $my_min $min";
-        }
-        return $my_days ? "$my_years $y, $my_days $d" : "$my_years $y";
+        echo $result_y = istrue($years,$my_years,$y,$my_sec);
+        echo $result_d = istrue($days,$my_days,$d,$my_sec);
+        echo $result_h = istrue($hours,$my_hours,$h,$my_sec);
+        echo $result_m = istrue($minutes,$my_min,$min,$my_sec);
+        echo $result_s = isittrue($seconds,$my_sec,$sec);
+        return "$result_y $result_d $result_h
+        $result_m $result_s";
     }
+    
     echo '<p>ex1: ';
     echo ($time = 60 * 60 * 24 + 1 + 333320600) . " second" . ($time == 1 ? false : "s") .  " equal: ";
     echo format_duration($time);
     echo '</p>';
-    echo '<p>ex2: <strong>' . format_duration(3611) . "</strong> equal to <strong>3611 seconds </strong>" . '<p>';
+    echo '<p>ex2: <strong>';format_duration(3611);echo "</strong> equal to <strong>3611 seconds </strong>" . '<p>';
 
     ?>
     <section class="text-center">
