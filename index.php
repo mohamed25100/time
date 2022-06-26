@@ -45,10 +45,12 @@
     $my_min = $minutes%60;
     $my_hours = $hours%24;
     $my_days = $days%365;
-    $my_years = $years%365;
+    $my_years = $years;
 
     if($years == 0){
+        if($my_min == 0 && $my_sec == 0 && $my_hours == 0){return "$my_days $d";}
     if($days == 0){
+        if($my_min == 0 && $my_sec == 0){return "$my_hours $h";}
         if ($hours == 0){
         if($minutes == 0){
             if ($seconds == 0){
@@ -89,8 +91,12 @@
     if($my_days && $my_hours && $my_min){
         return "$my_years $y, $my_days $d, $my_hours $h and $my_min $min";
     }
+        return $my_days ? "$my_years $y, $my_days $d" :"$my_years $y";
     }
+    echo '<p>';
+    echo ($time = 60*60*24+1+333320600) . " second" .($time == 1 ? false:"s") .  " equal: ";
+    echo format_duration($time);echo '</p>';
+    echo '<p><strong>'.format_duration(3611) . "</strong> equal to <strong>3611 seconds </strong>" . '<p>';
     ?>
-
 </body>
 </html>
