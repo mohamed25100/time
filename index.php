@@ -98,7 +98,7 @@
     <p>Try it for yourself</p>
     <form action='index.php' method='post' class="text-light">
         <label for='nom'>Please enter an integer only : </label>
-        <input type='number' max="10001001000" name='nom' id='nom' class="p-2 rounded-pill">
+        <input type='number' min="0" max="10001001000" name='nom' id='nom' class="p-2 rounded-pill">
         <input type='submit' value='Submit' class="bg-success p-2 rounded-pill text-light">
     </form>
     <?php

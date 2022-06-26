@@ -7,4 +7,8 @@ time en php from seconds to years
 - fix bugs of return (return all values)
 - bootstrap added
 
+## update v1.3
+- fix bugs
+- integer only (>0);
+
 &copy; Mohamed BOUCHERBA.
