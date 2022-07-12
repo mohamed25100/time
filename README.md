@@ -10,5 +10,7 @@ time en php from seconds to years
 ## update v1.3
 - fix bugs
 - integer only (>0);
+## date now create v1.4
+- file : date-now.html
 
 &copy; Mohamed BOUCHERBA.
